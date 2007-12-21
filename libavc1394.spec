@@ -15,6 +15,7 @@ Group: 		System/Libraries
 Source0: 	%{name}-%{version}.tar.bz2
 URL:            http://www.sourceforge.net/projects/libavc1394
 
+Buildroot: 	%{_tmppath}/%{name}-buildroot
 Buildrequires: 	libraw1394-devel
 
 %description

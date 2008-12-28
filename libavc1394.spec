@@ -1,10 +1,10 @@
 %define name 	libavc1394
 %define version 0.5.3
-%define release %mkrel 3
+%define release %mkrel 4
 
-%define major 	_0
-%define libname %mklibname avc1394 %major
-%define libnamedev %mklibname avc1394 %major -d
+%define major 	0
+%define libname %mklibname avc1394_ %major
+%define libnamedev %mklibname avc1394 -d
 
 Name: 		%{name}
 Version: 	%{version}
@@ -33,14 +33,15 @@ libavc1394 is a programming interface for the 1394 Trade
 Association AV/C (Audio/Video Control) Digital Interface 
 Command Set. It is intended for use with GNU/Linux IEEE-1394
 
-%package -n %{libname}-devel
+%package -n %{libnamedev}
 Summary: FireWire interface
 Group: Development/C
 Provides: libavc1394-devel = %version-%release
 Provides: libavc-devel = %version-%release
 Requires: %libname = %{version}
+Obsoletes: %{_lib}avc1394_0-devel
 
-%description -n %{libname}-devel
+%description -n %{libnamedev}
 libavc1394 is a programming interface for the 1394 Trade
 Association AV/C (Audio/Video Control) Digital Interface
 Command Set. It is intended for use with GNU/Linux IEEE-1394
@@ -79,9 +80,9 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %{libname}
 %defattr(-,root,root)
 %doc README NEWS INSTALL COPYING AUTHORS
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}*
 
-%files -n %{libname}-devel
+%files -n %{libnamedev}
 %defattr(- ,root,root)
 %{_libdir}/*.la
 %{_libdir}/*.a

@@ -63,9 +63,9 @@ Contains test tools for the libavc1394 library.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
-cp test/.libs/romtest $RPM_BUILD_ROOT/%_bindir
+cp test/.libs/romtest %{buildroot}/%_bindir
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
@@ -75,7 +75,7 @@ cp test/.libs/romtest $RPM_BUILD_ROOT/%_bindir
 %endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)

@@ -1,14 +1,10 @@
-%define name 	libavc1394
-%define version 0.5.3
-%define release %mkrel 8
-
 %define major 	0
 %define libname %mklibname avc1394_ %major
 %define libnamedev %mklibname avc1394 -d
 
-Name: 		%{name}
-Version: 	%{version}
-Release: 	%{release}
+Name: 		libavc1394
+Version: 	0.5.3
+Release: 	9
 Summary:        Control AV firewire devices
 License: 	GPL
 Group: 		System/Libraries
@@ -59,20 +55,14 @@ Contains test tools for the libavc1394 library.
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x --disable-static
 %make
 
 %install
 rm -rf %{buildroot}
 %makeinstall_std
 cp test/.libs/romtest %{buildroot}/%_bindir
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
+rm -rf %{buildroot}/%{_libdir%}/*.la
 
 %clean
 rm -rf %{buildroot}
@@ -84,8 +74,6 @@ rm -rf %{buildroot}
 
 %files -n %{libnamedev}
 %defattr(- ,root,root)
-%{_libdir}/*.la
-%{_libdir}/*.a
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc

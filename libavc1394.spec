@@ -6,7 +6,7 @@
 Summary:	Control AV firewire devices
 Name:		libavc1394
 Version:	0.5.4
-Release:	3
+Release:	4
 License:	GPLv2
 Group:		System/Libraries
 Url:		http://www.sourceforge.net/projects/libavc1394

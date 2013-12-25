@@ -61,6 +61,7 @@ This package contains the development files for %{name}.
 %setup -q
 
 %build
+autoreconf -fiv
 %configure2_5x --disable-static
 %make
 

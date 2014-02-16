@@ -11,7 +11,7 @@ License:	GPLv2
 Group:		System/Libraries
 Url:		http://www.sourceforge.net/projects/libavc1394
 Source0:	http://downloads.sourceforge.net/project/libavc1394/%{name}/%{name}-%{version}.tar.gz
-
+Patch0:         libavc1394-0.5.4-librom.patch
 Buildrequires:	pkgconfig(libraw1394)
 
 %description
@@ -59,6 +59,7 @@ This package contains the development files for %{name}.
 
 %prep
 %setup -q
+%patch0 -p1 -b .rom1394~
 
 %build
 autoreconf -fiv
@@ -82,6 +83,6 @@ cp test/.libs/romtest %{buildroot}/%{_bindir}
 %files -n %{devname}
 %doc README NEWS INSTALL COPYING AUTHORS
 %{_includedir}/*
-%{_libdir}/*.so
-%{_libdir}/pkgconfig/*.pc
-
+%{_libdir}/ligbav1394.so
+%{_libdir}/ligbrom1394.so
+%{_libdir}/pkgconfig/libavc1394.pc

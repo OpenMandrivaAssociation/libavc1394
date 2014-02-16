@@ -70,7 +70,7 @@ autoreconf -fiv
 
 %install
 %makeinstall_std
-cp test/.libs/romtest %{buildroot}/%{_bindir}
+install -m755 -p test/.libs/romtest -D %{buildroot}%{_bindir}/romtest
 
 %files -n %{name}-tools
 %{_bindir}/*

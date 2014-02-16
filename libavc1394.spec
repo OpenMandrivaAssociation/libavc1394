@@ -85,6 +85,6 @@ cp test/.libs/romtest %{buildroot}/%{_bindir}
 %files -n %{devname}
 %doc README NEWS INSTALL COPYING AUTHORS
 %{_includedir}/*
-%{_libdir}/ligbav1394.so
-%{_libdir}/ligbrom1394.so
+%{_libdir}/libavc1394.so
+%{_libdir}/librom1394.so
 %{_libdir}/pkgconfig/libavc1394.pc

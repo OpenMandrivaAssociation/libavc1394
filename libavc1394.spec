@@ -62,9 +62,9 @@ This package contains the development files for %{name}.
 %setup -q
 %patch0 -p1 -b .rom1394~
 %patch1 -p1 -b .rawutil1394~
+autoreconf -fiv
 
 %build
-autoreconf -fiv
 %configure2_5x --disable-static
 %make
 

@@ -12,6 +12,7 @@ Group:		System/Libraries
 Url:		http://www.sourceforge.net/projects/libavc1394
 Source0:	http://downloads.sourceforge.net/project/libavc1394/%{name}/%{name}-%{version}.tar.gz
 Patch0:         libavc1394-0.5.4-librom.patch
+Patch1:		libavc1394-0.5.4-add-missing-linkage-against-librawutil1394.patch
 Buildrequires:	pkgconfig(libraw1394)
 
 %description
@@ -60,6 +61,7 @@ This package contains the development files for %{name}.
 %prep
 %setup -q
 %patch0 -p1 -b .rom1394~
+%patch1 -p1 -b .rawutil1394~
 
 %build
 autoreconf -fiv

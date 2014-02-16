@@ -1,0 +1,11 @@
+--- libavc1394-0.5.4/libavc1394/Makefile.am~	2014-02-16 17:23:28.742251419 +0100
++++ libavc1394-0.5.4/libavc1394/Makefile.am	2014-02-16 18:03:37.932235968 +0100
+@@ -2,7 +2,7 @@ MAINTAINERCLEANFILES = Makefile.in
+ lib_LTLIBRARIES = libavc1394.la
+ libavc1394_la_LDFLAGS = @LIBRAW1394_LIBS@ \
+ 	-version-info @lt_major@:@lt_revision@:@lt_age@
+-#libavc1394_la_LIBADD = $(top_builddir)/librom1394/librom1394.la
++libavc1394_la_LIBADD = $(top_builddir)/common/libraw1394util.la
+ libavc1394_la_SOURCES = \
+ 	avc1394_simple.c avc1394_vcr.c \
+ 	avc1394_internal.c avc1394_internal.h

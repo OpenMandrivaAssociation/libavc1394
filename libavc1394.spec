@@ -13,6 +13,11 @@ Url:		https://www.sourceforge.net/projects/libavc1394
 Source0:	http://downloads.sourceforge.net/project/libavc1394/%{name}/%{name}-%{version}.tar.gz
 Patch0:         libavc1394-0.5.4-librom.patch
 Patch1:		libavc1394-0.5.4-add-missing-linkage-against-librawutil1394.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 Buildrequires:	pkgconfig(libraw1394)
 
 %description
